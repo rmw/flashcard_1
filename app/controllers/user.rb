@@ -7,12 +7,15 @@ get '/login' do
 end
 
 post '/login' do
-  @user = User.find_by(name: params[:user][:name])
-  if @user.authenticate(params[:user][:password])
-    session[:user_id] = @user.id
-    redirect '/decks'
+  if @user = User.find_by(name: params[:user][:name])
+    if @user.authenticate(params[:user][:password])
+      session[:user_id] = @user.id
+      redirect '/decks'
+    else
+      redirect '/users/new'
+    end
   else
-    redirect '/login/new'
+    redirect '/users/new'
   end
 end
 
