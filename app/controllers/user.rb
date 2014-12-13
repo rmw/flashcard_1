@@ -12,15 +12,15 @@ post '/login' do
     session[:user_id] = @user.id
     redirect '/decks'
   else
-    redirect '/login'
+    redirect '/login/new'
   end
 end
 
-get '/login/new' do
-  erb :'/login/new'
+get '/users/new' do
+  erb :'/users/new'
 end
 
-post '/login/new' do
+post '/users' do
   @user = User.new(params[:user])
   if @user.save
     erb :'index'
