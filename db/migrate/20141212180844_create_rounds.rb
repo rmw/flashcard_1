@@ -5,5 +5,6 @@ class CreateRounds < ActiveRecord::Migration
       t.references :deck
 
       t.timestamps
+   end
   end
 end

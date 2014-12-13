@@ -28,3 +28,4 @@ post '/users' do
     redirect '/login/new'
   end
 end
+

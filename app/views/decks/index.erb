@@ -1,0 +1,10 @@
+<h1>Decks</h1>
+  <h3> Click on a deck to play!</h3>
+  <% @decks.each do |deck| %>
+    <ul class="list">
+      <li>Deck Name: <a href="/decks/play/<%=deck.id %>"><%= deck.name %></a></li>
+      <li>Deck Description: <%= deck.description %></li>
+    </ul>
+    <hr>
+  <% end %>
+  <a href="/decks/new">Create a new deck! </a>
