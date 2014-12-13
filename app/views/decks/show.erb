@@ -2,7 +2,7 @@
   <h3> Click on a deck to play!</h3>
   <% @decks.each do |deck| %>
     <ul class="list">
-      <li>Deck Name: <a href="/contacts/<%=deck.id %>"><%= deck.name %></a></li>
+      <li>Deck Name: <a href="/decks/play/<%=deck.id %>"><%= deck.name %></a></li>
       <li>Deck Description: <%= deck.description %></li>
     </ul>
     <hr>
