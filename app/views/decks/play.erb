@@ -4,9 +4,11 @@
   <ul class="list">
   <li>
     <label for="answer">Answer?</label>
-    <input id="" type="text" name="game[answer]" value="" />
+    <input id="" type="text" name="user_answer" value="" />
   </li>
   <li>
+
+    <form action="/answer/<%= @decks.id %>" method="POST">
     <input type="submit" value="Save" />
   </li>
 </ul>

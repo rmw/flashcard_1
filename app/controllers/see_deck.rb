@@ -8,5 +8,11 @@ get '/decks/play/:id' do
   erb :'decks/play'
 end
 
+post '/answer/:id' do
+  @deck = Deck.find(params[:id])
+  p params
+  @deck.right_wrong(params[:user_answer])
+  redirect "/decks/play/#{@deck.id}"
+end
 
 

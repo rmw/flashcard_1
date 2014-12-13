@@ -17,12 +17,20 @@ seed_cards= {
 Card.create!(seed_cards)
 end
 
-10.times do
+test_guess= {
+  user_id: 1,
+  round_id: 1,
+  card_id: 1,
+  correct: false
+}
+Guess.create!(test_guess)
+
+1000.times do
 seed_guess= {
   user_id: rand(4),
   round_id: rand(4),
   card_id: rand(4),
-  correct:  true
+  correct: false
 }
 Guess.create!(seed_guess)
 end
