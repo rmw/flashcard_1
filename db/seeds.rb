@@ -1,35 +1,18 @@
 require 'faker'
 
-
-4.times do
-  Deck.create!(name: Faker::Name.name, description: Faker::Commerce.department)
-end
-
-25.times do
-  Card.create(deck_id: rand(4), question: Faker::Commerce.department, answer: "now")
-end
+Deck.create!(name: "World Capitals", description: "Learn the capital for each country in the world.")
 
 
-10.times do
-  User.create(name: Faker::Internet.user_name, password: Faker::Internet.password(4))
-end
+Card.create(deck_id: 1, question: "Afghanistan" , answer: "Kabul" )
+Card.create(deck_id: 1, question: "Albania" , answer: "Tirana" )
+Card.create(deck_id: 1, question: "Algeria", answer: "Algiers" )
+Card.create(deck_id: 1, question: "Andorra", answer: "Andorra la Vella" )
+Card.create(deck_id: 1, question: "Angola", answer: "Luanda" )
+Card.create(deck_id: 1, question: "Antigua and Barbuda", answer: "St. Johns")
 
-10.times do
-  Guess.create!( user_id: 1, round_id: 1, card_id: 1, correct: false)
-end
 
-# 1000.times do
-# seed_guess= {
-#   user_id: rand(4),
-#   round_id: rand(4),
-#   card_id: rand(4),
-#   correct: false
-# }
-# Guess.create!(seed_guess)
-# end
+User.create(name: "Nodira", password: "corgi")
 
-10.times do
-  Round.create!( user_id: rand(4), deck_id: rand(4))
-end
+
 
 

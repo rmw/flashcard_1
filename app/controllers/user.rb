@@ -1,6 +1,7 @@
-get '/' do
-  erb :'index'
-end
+# get '/' do
+#   erb :'index'
+# end
+# we should just present users with the login page
 
 get '/login' do
   erb :'login/index'
