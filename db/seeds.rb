@@ -12,6 +12,7 @@ Card.create(deck_id: 1, question: "Antigua and Barbuda", answer: "St. Johns")
 
 
 User.create(name: "Nodira", password: "corgi")
+User.create(name: "Nirag", password:"taco")
 
 
 

@@ -1,0 +1,8 @@
+
+<ul>
+<% @rounds.each do |round| %>
+  <li><a href="/rounds/<%= round.id %>">Round:<%=round.id %></a></li>
+<% end %>
+</ul>
+
+<a href="/decks">Play a new round.</a>

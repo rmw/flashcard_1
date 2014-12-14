@@ -1,9 +1,13 @@
 <h1> Results </h1>
 <% @guesses.each do |guess| %>
   <ul class="list">
-    <li><%= guess.correct %></li>
-
+    <li>Question: <%= guess.card.question %> </li>
+    <li>Your Answer was: <%=guess.answer%> </li>
+    <li>Correct Answer: <%= guess.card.answer %></li>
+    <li>Your answer was correct? <%= guess.correct.to_s.capitalize %></li>
   </ul>
-  <% end %>
+<% end %>
+<p>You got <%=@correct.length%> of <%=@guesses.length%> correct. That is <%=@correct.length.to_f/@guesses.length.to_f*100%>%.
+
 <!-- <h2> Correct: </h2>
 <h2> Incorrect: </h2> -->
