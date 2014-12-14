@@ -11,7 +11,7 @@ get '/decks/:deck_id/cards/:index_id' do
   @index = params[:index_id]
   @deck = Deck.find(params[:deck_id])
   @card = @deck.cards[params[:index_id].to_i]
-  erb :'/decks/playtoy'
+  erb :'/decks/play'
 end
 
 get '/decks/:id' do
@@ -26,12 +26,6 @@ end
 
 get '/results' do
   session[:round_id].clear
-end
-
-get '/round/:id/correct' do
-  @round = Round.find(params[:id])
-  @deck = @round.deck
-  erb :'/decks/correct'
 end
 
 post '/decks/:deck_id/cards/:index_id' do

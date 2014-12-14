@@ -1,18 +1,7 @@
-<h1>Game</h1>
-  <h3>Answer the questions!</h3>
-  <form action="/rounds/<%= @decks.id %>" method="POST">
-  <ul class="list">
-  <%@cards.shuffle.each do |card| %>
-  <li>
-    <p>Question: <%= card.question %></p>
-    <label for="answer">Answer?</label>
-    <input type="text" name="answers[<%=card.id%>]"/>
-  </li>
-  <br>
-<!--   <hr> -->
-  <%end%>
-  <li>
-  <input type="submit" value="Save" />
-  </li>
+<h1>Question</h1>
+<h2><%= @card.question %></h2>
+<form action="/decks/<%= @deck.id%>/cards/<%= @index %>" method="POST">
+  <input type="text" name="answer">
+  <input type="submit">
 </form>
-</ul>
+<h3><%= @error if @error %></h3>
