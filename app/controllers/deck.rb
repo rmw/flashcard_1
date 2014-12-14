@@ -24,9 +24,7 @@ get '/decks/:id' do
   end
 end
 
-# get '/results' do
-#   @round = Round.find(session[:round_id])
-# end
+
 
 post '/decks/:deck_id/cards/:index_id' do
   @user = User.find(session[:user_id])
@@ -41,19 +39,20 @@ post '/decks/:deck_id/cards/:index_id' do
 
   @deck = @round.deck
   @card = @deck.cards[params[:index_id].to_i]
-  @guesses = Guess.where(round_id: @round.id)
 
-  if params[:index_id].to_i + 1 < @deck.cards.length
+
+  if @index + 1 <= @deck.cards.length
+    @guess = Guess.create(card_id: @card.id, round_id: @round.id, user_id: @user.id, answer:params[:answer])
     if params[:answer].downcase == @card.answer.downcase
-      @guess = Guess.create(correct: true, card_id: @card.id, round_id: @round.id)
-      redirect "/decks/#{@deck.id}/cards/#{params[:index_id].to_i + 1}"
-    else
-      @guess = Guess.create(correct: false, card_id: @card.id, round_id: @round.id)
-      redirect "/decks/#{@deck.id}/cards/#{params[:index_id].to_i + 1}"
+      @guess.correct= true
+      @guess.save
     end
-  else
+  end
 
-    erb :'rounds/results' # if we redirect, instance variables will not persist, rendering will
+  if @index + 1 != @deck.cards.length
+    redirect "/decks/#{@deck.id}/cards/#{params[:index_id].to_i + 1}"
+  else
+    redirect "/rounds/#{@round.id}"
   end
 end
 

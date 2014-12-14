@@ -31,7 +31,7 @@ th {
   list-style-type: none;
 }
 
-.list li{
+.list {
   border: 5px gray solid;
   padding: 10px 0px 10px 0px;
   background: pink;
