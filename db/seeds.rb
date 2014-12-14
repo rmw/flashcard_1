@@ -1,16 +1,18 @@
 require 'faker'
 
-3.times do
-seed_decks= {
-  name: "uhh",
-  description:  "states"
-}
-
-Deck.create!(seed_decks)
+Deck.create!(name: "World Capitals", description: "Learn the capital for each country in the world.")
 
 
-10.times do
-  User.create(name: Faker::Internet.user_name, password: Faker::Internet.password(4))
-end
+Card.create(deck_id: 1, question: "Afghanistan" , answer: "Kabul" )
+Card.create(deck_id: 1, question: "Albania" , answer: "Tirana" )
+Card.create(deck_id: 1, question: "Algeria", answer: "Algiers" )
+Card.create(deck_id: 1, question: "Andorra", answer: "Andorra la Vella" )
+Card.create(deck_id: 1, question: "Angola", answer: "Luanda" )
+Card.create(deck_id: 1, question: "Antigua and Barbuda", answer: "St. Johns")
 
-#Card.create(deck_id: Deck.all.sample, )
+
+User.create(name: "Nodira", password: "corgi")
+
+
+
+

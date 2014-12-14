@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :rounds
   has_many :guesses
+  has_many :decks, through: :rounds
 
   def authenticate(password)
     if self.password == (password)
