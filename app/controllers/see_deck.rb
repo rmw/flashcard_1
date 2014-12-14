@@ -44,9 +44,9 @@ post '/decks/:deck_id/cards/:index_id' do
   else
     @round = Round.find(session[:round_id])
   end
+
   @deck = @round.deck
   @card = @deck.cards[params[:index_id].to_i]
-
 
   if params[:index_id].to_i + 1 < @deck.cards.length
     if params[:answer] == @card.answer
