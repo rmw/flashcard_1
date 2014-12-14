@@ -1,1 +1,18 @@
-adsfsdagfdfsda
+<h1>Game</h1>
+  <h3>Answer the questions!</h3>
+  <form action="/rounds/<%= @decks.id %>" method="POST">
+  <ul class="list">
+  <%@cards.shuffle.each do |card| %>
+  <li>
+    <p>Question: <%= card.question %></p>
+    <label for="answer">Answer?</label>
+    <input type="text" name="answers[<%=card.id%>]"/>
+  </li>
+  <br>
+<!--   <hr> -->
+  <%end%>
+  <li>
+  <input type="submit" value="Save" />
+  </li>
+</form>
+</ul>

@@ -6,6 +6,10 @@ get '/login' do
   erb :'login/index'
 end
 
+get '/session-viewer' do
+  session.inspect
+end
+
 post '/login' do
   if @user = User.find_by(name: params[:user][:name])
     if @user.authenticate(params[:user][:password])
@@ -31,4 +35,9 @@ post '/users' do
   else
     redirect '/login/new'
   end
+end
+
+put '/login' do
+  session.clear
+  redirect '/login'
 end

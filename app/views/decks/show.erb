@@ -1,11 +1,11 @@
-<h1>Decks</h1>
-  <h3> Click on a deck to play!</h3>
-  <% @decks.each do |deck| %>
+<h1>Deck</h1>
+  <h3> <%=@decks.name %></h3>
+  <h5> <%=@decks.description %></h5>
+  <% @cards.each do |quest| %>
     <ul class="list">
-      <li>Deck Name: <a href="/decks/play/<%=deck.id %>"><%= deck.name %></a></li>
-      <li>Deck Description: <%= deck.description %></li>
+      <li>Question: <%=quest.question%></li>
     </ul>
     <hr>
   <% end %>
-  <a href="/decks/new">Create a new deck! </a>
+  <a href="/decks/play/<%=@decks.id%>">Let's fuckin play! </a>
 

@@ -11,3 +11,12 @@ th {
 .list {
   list-style-type: none;
 }
+
+.list li{
+  border: 5px gray solid;
+  padding: 10px 0px 10px 0px;
+  background: pink;
+  border-radius: 20px;
+  text-indent: 30px;
+
+}
