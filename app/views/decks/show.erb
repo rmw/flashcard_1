@@ -1,3 +1,7 @@
+<form action="/login" method="POST">
+  <input type="hidden" name="_method" value="PUT">
+  <input type="submit" value="Logout">
+</form>
 <h1>Deck</h1>
   <h3> <%=@decks.name %></h3>
   <h5> <%=@decks.description %></h5>
@@ -7,5 +11,5 @@
     </ul>
     <hr>
   <% end %>
-  <a href="/decks/play/<%=@decks.id%>">Let's fuckin play! </a>
+  <a href="/decks/<%=@decks.id%>/round">Let's fuckin play! </a>
 
