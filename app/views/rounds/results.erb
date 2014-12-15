@@ -1,0 +1,17 @@
+<div class="results">
+  <a href="/login" class="logout">Logout</a>
+  <h1 id="results"> Results </h1>
+<% @guesses.each do |guess| %>
+
+    <label id="question">Question: </label> <%= guess.card.question %><br>
+    <label id="answer">Your Answer: </label><%=guess.answer%><br>
+    <label id="correct">Correct Answer: </label><%= guess.card.answer %>
+    <!-- <label>Your answer was <%= guess.correct.to_s.capitalize %>!</label> -->
+    <br><br>
+<% end %>
+<h4>You got <%=@correct.length%> of <%=@guesses.length%> correct. That is <%=(@correct.length.to_f/@guesses.length.to_f*100).round%>%.</h4><br>
+<a href="/decks" id="home_link">Back to profile!</a>
+</div>
+
+
+

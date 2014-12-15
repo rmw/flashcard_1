@@ -1,0 +1,13 @@
+<div class="content">
+  <a href="/login" class="logout">Logout</a>
+
+  <h1 class="welcome"> Welcome, <%= @user.name %></h1>
+  <div class="deck_view">
+    <h3> Click on a deck to play!</h3>
+    <% @decks.each do |deck| %>
+    <label>Deck Name: <a href="/decks/<%=deck.id %>"><%= deck.name %></a></label><br>
+    <label>Description: <%= deck.description %></label><br>
+    <% end %>
+    <a href="/decks/new">Create a new deck! </a>
+  </div>
+</div>

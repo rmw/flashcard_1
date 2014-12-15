@@ -1,0 +1,16 @@
+<div class="content">
+  <a href="/login" class="logout">Logout</a>
+
+  <h1 class="deck_name"><%= @deck.name %></h1>
+  <div class="deck_view">
+    <h3> <%=@deck.description %></h3>
+    <% @cards.each do |quest| %>
+    <label>Question: <%= quest.question %></label><br>
+    <% end %>
+    <a href="/cards/new/<%= @deck.id%>">Create a new card! </a>
+    <br>
+    <a href="/decks">Go back to the list of deck</a>
+    <br>
+    <input type="button" value="Want to play?" onClick="location.href='/decks/<%= @deck.id%>/cards/0'">
+  </div>
+</div>
