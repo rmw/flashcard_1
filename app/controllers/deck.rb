@@ -14,6 +14,21 @@ get '/decks/:deck_id/cards/:index_id' do
   erb :'/decks/play'
 end
 
+get '/decks/new' do
+  erb :'decks/new'
+end
+
+post '/decks' do
+  @new_deck = Deck.new(params[:deck])
+  @new_deck.save
+
+  if @new_deck.save
+    redirect '/decks'
+  else
+    redirect '/decks/new'
+  end
+end
+
 get '/decks/:id' do
   if session[:user_id]  != nil
     @deck = Deck.find(params[:id])

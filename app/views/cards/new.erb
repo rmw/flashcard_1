@@ -1,0 +1,10 @@
+
+<form action="/cards/<%= @deck.id %>" method="POST">
+<label>Create a new question</label>
+<br>
+    <label>Write the question</label>
+      <input type="text" name="card[question]">
+    <label>Write the answer</label>
+      <input type="text" name="card[answer]">
+    <input type="submit" value="Create">
+</form>
