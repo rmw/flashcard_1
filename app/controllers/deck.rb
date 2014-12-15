@@ -1,4 +1,5 @@
 get '/decks' do
+  @user = User.find(session[:user_id])
   if session[:user_id] != nil
     @decks = Deck.all
     erb :'decks/index'
@@ -8,10 +9,15 @@ get '/decks' do
 end
 
 get '/decks/:deck_id/cards/:index_id' do
-  @index = params[:index_id]
-  @deck = Deck.find(params[:deck_id])
-  @card = @deck.cards[params[:index_id].to_i]
-  erb :'/decks/play'
+  if session[:user_id] != nil
+
+    @index = params[:index_id]
+    @deck = Deck.find(params[:deck_id])
+    @card = @deck.cards[params[:index_id].to_i]
+    erb :'/decks/play'
+   else
+    redirect '/login'
+  end
 end
 
 get '/decks/:id' do
@@ -27,22 +33,24 @@ end
 
 
 post '/decks/:deck_id/cards/:index_id' do
-  @user = User.find(session[:user_id])
-  @index = params[:index_id].to_i
+   if session[:user_id] != nil
+
+      @user = User.find(session[:user_id])
+      @index = params[:index_id].to_i
 
   if @index == 0
-    @round = Round.create(deck_id: params[:deck_id], user_id: @user.id)
-    session[:round_id] = @round.id
+      @round = Round.create(deck_id: params[:deck_id], user_id: @user.id)
+      session[:round_id] = @round.id
   else
     @round = Round.find(session[:round_id])
   end
 
-  @deck = @round.deck
-  @card = @deck.cards[params[:index_id].to_i]
+    @deck = @round.deck
+    @card = @deck.cards[params[:index_id].to_i]
 
 
   if @index + 1 <= @deck.cards.length
-    @guess = Guess.create(card_id: @card.id, round_id: @round.id, user_id: @user.id, answer:params[:answer])
+      @guess = Guess.create(card_id: @card.id, round_id: @round.id, user_id: @user.id, answer:params[:answer])
     if params[:answer].downcase == @card.answer.downcase
       @guess.correct= true
       @guess.save
@@ -53,6 +61,9 @@ post '/decks/:deck_id/cards/:index_id' do
     redirect "/decks/#{@deck.id}/cards/#{params[:index_id].to_i + 1}"
   else
     redirect "/rounds/#{@round.id}"
+  end
+  else
+    redirect '/login'
   end
 end
 

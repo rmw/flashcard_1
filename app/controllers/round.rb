@@ -1,15 +1,23 @@
 get'/rounds' do
-  @rounds = Round.all
+   if session[:user_id] != nil
 
-  erb :'/rounds/index'
-
-
+      @rounds = Round.all
+      erb :'/rounds/index'
+  else
+    redirect '/login'
+  end
 end
 
 
+
 get '/rounds/:id' do
-  @round = Round.find(session[:round_id])
-  @guesses = Guess.where(round_id: @round.id)
-  @correct = Guess.where(round_id: @round.id, correct: true)
-  erb :'rounds/results'
+  if session[:user_id] != nil
+
+    @round = Round.find(session[:round_id])
+    @guesses = Guess.where(round_id: @round.id)
+    @correct = Guess.where(round_id: @round.id, correct: true)
+    erb :'rounds/results'
+   else
+    redirect '/login'
+  end
 end

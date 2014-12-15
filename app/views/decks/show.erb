@@ -1,15 +1,12 @@
-<form action="/login" method="POST">
-  <input type="hidden" name="_method" value="PUT">
-  <input type="submit" value="Logout">
-</form>
-<h1>Deck</h1>
-  <h3> <%=@deck.name %></h3>
-  <h5> <%=@deck.description %></h5>
-  <% @cards.each do |quest| %>
-    <ul class="list">
-      <li>Question: <%=quest.question%></li>
-    </ul>
-    <hr>
-  <% end %>
-  <a href="/decks/<%= @deck.id%>/cards/0">Let's fuckin play! </a>
+<div class="content">
+  <a href="/login" class="logout">Logout</a>
 
+  <h1 class="deck_name"><%= @deck.name %></h1>
+  <div class="deck_view">
+    <h3> <%=@deck.description %></h3>
+    <% @cards.each do |quest| %>
+    <label>Question: <%= quest.question %></label><br>
+    <% end %>
+    <a href="/decks/<%= @deck.id%>/cards/0">Let's play!</a>
+  </div>
+</div>
