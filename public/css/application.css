@@ -1,41 +1,176 @@
-.container {
-  margin: 200px auto;
-  border: 1px dotted gray;
-  width: 500px;
-  padding: 15px;
+* {
+  background-color: #E9E6E2;
 }
 
+a {
+  text-decoration: none;
+}
 
-#login {
+#login, #signup {
   margin: 200px auto;
   width: 300px;
   padding: 15px;
-  border: 1px dotted gray;
+  background-color: #f5f5f5;
+  box-shadow: 3px 3px 3px gray;
+  opacity: 0.85;
+}
+`
+#login input[type="text"], input[type="password"] {
+  background-color: #ffffff;
+}
+
+#signup input[type="text"], input[type="password"] {
+  background-color: #ffffff;
 }
 
 #login_button {
+  margin-left: 38%;
   border: 1px solid black;
-  margin-left: 35%;
-  border-radius: 10px;
+  background-color: #C00000;
+  margin-left: 38%;
+  border-radius: 8px;
+  box-shadow: 1px 1px 3px black;
+  color: white;
 }
 
 .center-me {
-  margin-left: 10%;
+  margin-left: 12%;
+  box-shadow: 0.7px 0.7px 1px black;
+  padding: 5px;
 }
 
-th {
+.logo {
+  margin-top: 225px;
+  margin-bottom: -70px;
+  font-family: 'Lobster', cursive;
+  font-size: 150px;
+  text-align: center;
+  color: #22ace1;
+  text-shadow: 2.5px 2.5px black;
+}
+
+#signup_text {
+  text-align: center;
+  margin-left: 23px;
+  background-color: #f2f2f2;
+  font-size: 40px;
+  font-family: 'Lobster', cursive;
+}
+
+#create_link {
+  color: #b20000;
+  position: fixed;
+  margin-left: 46%;
+  width: 720px;
+}
+
+.content {
+  width: 800px;
+  margin: 80px auto;
+  background-color: white;
+  box-shadow: 3px 3px 3px gray;
+  line-height: 200%;
+  padding: 50px;
+}
+
+.logout {
+  float: right;
+  color: #b20000;
+}
+
+.welcome, .deck_name, #results {
+  background-color: white;
   text-align: left;
+  font-family: 'Lobster', cursive;
+  font-size: 70px;
 }
 
-.list {
-  list-style-type: none;
+.deck_view  {
+  padding: 10px;
+  background-color: white;
 }
 
-.list {
-  border: 5px gray solid;
-  padding: 10px 0px 10px 0px;
-  background: pink;
-  border-radius: 20px;
-  text-indent: 30px;
+.deck_view a {
+  color: #22ace1;
+}
+
+.deck_view h3 {
+  margin: 25px 0;
+  background-color: white;
+  text-align: center;
+  font-size: 25px;
+}
+
+.deck_view label {
+  background-color: white;
+}
+
+.card_view {
+  width: 400px;
+  height: 300px;
+  margin: 80px auto;
+  background-color: white;
+  box-shadow: 3px 3px 3px gray;
+  line-height: 200%;
+  padding: 50px;
+  text-align: center;
+  border-top: 4px solid #22ace1;
+}
+
+.card_view h1, h2, input[type="text"], form {
+  background-color: white;
+}
+
+.card_view h1 {
+  font-family: 'Lobster', cursive;
+  font-size: 75px;
+  color: #C00000;
+}
+
+#answer_submit_button {
+  border: 1px solid black;
+  background-color: #C00000;
+  border-radius: 8px;
+  box-shadow: 1px 1px 3px black;
+  color: white;
+}
+
+#quit_link {
+  color: #22ace1;
+  margin-left: 48%;
+}
+
+.results {
+  width: 800px;
+  margin: 80px auto;
+  background-color: white;
+  box-shadow: 3px 3px 3px gray;
+  line-height: 200%;
+  padding: 50px;
+}
+
+#question, #correct {
+  color: #22ace1;
+  background-color: white;
+}
+
+#answer {
+   color: #b20000;
+   background-color: white;
+}
+
+#home_link {
+  font-family: 'Lobster', cursive;
+  font-size: 30px;
+  color: black;
+}
+
+.results h4 {
+  background-color: white;
 
 }
+
+
+
+
+
